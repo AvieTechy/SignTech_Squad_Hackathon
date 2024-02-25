@@ -1,0 +1,425 @@
+{% extends 'snippets/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="hero">
+      <div class="hero-slide">
+        <div
+          class="img overlay"
+          style="background-image: url('/static/images/bg_1.jpg')"
+        ></div>
+        <div
+          class="img overlay"
+          style="background-image: url('/static/images/bg_2.jpg')"
+        ></div>
+        <div
+          class="img overlay"
+          style="background-image: url('static/images/bg_3.jpg')"
+        ></div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center">
+            <div class = "welcome-box">
+            <h1 class="heading" data-aos="fade-up">
+              Welcome to Align – SignLanguageTranslator!
+            </h1>
+          </div>
+
+            <form
+              action="{% url 'fileRequest' %} "
+              method="POST"
+              class="narrow-w form-search d-flex align-items-stretch mb-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              {% csrf_token %}
+                <div class = "row">
+                    <div class="col-md-8">
+                         <input type="file" id = "video" name ="video" class="form-control px-4" accept="video/mp4,video/x-m4v,video/*">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary">Dịch</button>
+                    </div>
+                    <div class="col-md-2">
+                        <a type="button" href="/realtime"
+                           class="btn btn-primary"><i class="fa fa-camera"></i></a>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="section" id = "home">
+  <div class="container">
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="font-weight-bold text-primary heading">
+          Home
+        </h2>
+        <h6>Welcome to Align – SignLanguageTranslator!</h6>
+        <p>Align is a website that can translate sign language into text in real-time. Whether you want to learn sign language, communicate with deaf people, or just have fun, Align is the perfect tool for you.
+        </p>
+        <iframe width="520" height="315"
+src="{{urlVideo}}">
+</iframe>
+      </div>
+      <div class="col-lg-6">
+        <h6 style="font-style: italic">With <b>Align</b>, you can:</h6>
+        <div class="d-flex feature-h">
+          <span class="wrap-icon me-3">
+            <span class="icon-upload"></span>
+          </span>
+          <div class="feature-text">
+            <h3 class="heading">Upload</h3>
+            <p class="text-black-50">
+                Upload an image or a video of sign language and get the translation in text.
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex feature-h">
+          <span class="wrap-icon me-3">
+            <span class="icon-camera"></span>
+          </span>
+          <div class="feature-text">
+            <h3 class="heading">Camera</h3>
+            <p class="text-black-50">
+              Use your webcam to sign and see the translation on the screen.
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex feature-h">
+          <span class="wrap-icon me-3">
+            <span class="icon-language"></span>
+          </span>
+          <div class="feature-text">
+            <h3 class="heading">Language</h3>
+            <p class="text-black-50">
+              Mainly support Vietnamese Sign-Language (VSL)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section sec-testimonials" id = "about">
+  <div class="container">
+    <div class="row mb-5 align-items-center">
+      <div class="col-md-6">
+        <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">
+          About
+        </h2>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div id="testimonial-nav">
+          <span class="prev" data-controls="prev">Prev</span>
+
+          <span class="next" data-controls="next">Next</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-slider-wrap">
+      <div class="testimonial-slider">
+        <div class="item">
+          <div class="testimonial">
+            <img
+              src="{% static 'images/logo.png' %}"
+              alt="Image"
+              class="img-fluid rounded-circle w-25 mb-4"
+            />
+            <h3 class="h5 text-primary mb-4">Project</h3>
+            <blockquote>
+              <p>
+                Align is a project developed by a team of students from Ho Chi Minh City
+                University of Science. We are passionate about sign language and its culture,
+                and we want to make it more accessible and inclusive for everyone.🙏
+              </p>
+            </blockquote>
+            <p class="text-black-50">Designer, Co-founder</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="testimonial">
+            <img
+              src="{% static 'images/ai1.jpg' %}"
+              alt="Image"
+              class="img-fluid rounded-circle w-25 mb-4"
+            />
+            <h3 class="h5 text-primary mb-4">Techniques</h3>
+            <blockquote>
+              <p>
+               Our product uses state-of-the-art artificial intelligence (AI) techniques
+                to recognize and translate sign language from images and videos. We use a
+                deep neural network that can learn from a large dataset of sign language
+                videos and generate accurate translations in text. We also use a user-friendly
+                interface that makes it easy to use our product on any device.💻
+              </p>
+            </blockquote>
+            <p class="text-black-50">Designer, Co-founder</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="testimonial">
+            <img
+              src="{% static 'images/heart2.jpg' %}"
+              alt="Image"
+              class="img-fluid rounded-circle w-25 mb-4"
+            />
+            <h3 class="h5 text-primary mb-4">Inspiration</h3>
+            <blockquote>
+              <p>
+               Our vision is to create a world where sign language is not a barrier,
+                but a bridge for communication and understanding. We hope that our
+                product can help people learn sign language, communicate with deaf
+                people, and appreciate the diversity and richness of sign language culture.🌎
+              </p>
+            </blockquote>
+            <p class="text-black-50">Designer, Co-founder</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-4 bg-light" id = "faq">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-5">
+        <h2 class="font-weight-bold heading text-primary mb-4">
+          FAQ
+        </h2>
+      </div>
+    </div>
+    <div class="row justify-content-between mb-5">
+      <div class="col-lg-4 mb-5 mb-lg-0 order-lg-2">
+        <div class="img-about dots">
+          <img src="{% static 'images/sign.jpg' %}" alt="Image" class="img-fluid" />
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="d-flex feature-h">
+          <span class="wrap-icon me-3">
+            <span class="icon-question  "></span>
+          </span>
+          <div class="feature-text">
+            <h3 class="heading"> How accurate is Align?</h3>
+            <p class="text-black-50">
+              Align is based on a deep neural network that can learn from a large dataset of sign language videos. However, sign language is not a fixed system, but a dynamic and expressive one that can vary depending on the context, the region, and the individual. Therefore, our product may not be able to capture all the nuances and variations of sign language. We are constantly working to improve our accuracy and expand our coverage of different sign languages. 🚀
+
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex feature-h">
+          <span class="wrap-icon me-3">
+            <span class="icon-question"></span>
+          </span>
+          <div class="feature-text">
+            <h3 class="heading">How do I use Align with my webcam?</h3>
+            <p class="text-black-50">
+              To use Align with your webcam, you need to allow our website to access your camera. Then, you can choose the sign language you want to translate from and click on the “Start” button. You will see yourself on the screen, along with the translation in text below. Make sure you have enough light and space, and that your hands are visible and clear on the screen. You can also adjust the speed and the size of the text according to your preference. 😎
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id = "origin">
+  <div class="row justify-content-center footer-cta" data-aos="fade-up">
+    <div class="col-lg-10 mx-auto">
+      <h2 class="mb-4  text-center">Origin</h2>
+      <div class="row justify-content-center footer-cta" data-aos="fade-up">
+        <div class="col-lg-5">
+          <p class = "text-justify">Align was born out of a challenge: to create a technological product that supports the 17 principles of sustainable development of the United Nations. 🌍
+          <p>
+        </div>
+        <div class="col-lg-5">
+          <p class = "text-justify">That’s how we came up with the idea of Align, a website that can translate sign language into text in real-time. With Align, anyone can upload an image or a video of sign language and get the translation in text or use their webcam to sign and see the translation on the screen. 🖥️
+          <p>
+
+        </div>
+        <div class="col-lg-5">
+          <p class = "text-justify">We are a team of students from Ho Chi Minh City University of Technology who share a passion for sign language and its culture. We wanted to create a product that would make sign language more accessible and inclusive for everyone. 🙌<p>
+        </div>
+        <div class="col-lg-5">
+          <p class = "text-justify">Our product uses state-of-the-art artificial intelligence techniques to recognize and translate sign language from images and videos. We also use a user-friendly interface that makes it easy to use our product on any device. 📱
+          <p>
+        </div>
+        <div class="col-lg-5">
+          <p class = "text-justify">We realized that there was a gap between the deaf community and the hearing world. Many people don’t know sign language or understand its diversity and richness. We wanted to bridge that gap and help people communicate and learn from each other. 💬<p>
+        </div>
+        <div class="col-lg-5">
+          <p class = "text-justify">Our mission is to create a world where sign language is not a barrier, but a bridge for communication and understanding. We hope that our product can help people learn sign language, communicate with deaf people, and appreciate the diversity and richness of sign language culture. 🙏
+          <p>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-7 -->
+
+  </div>
+
+  <!-- /.row -->
+</div>
+
+<div class="section section-5 bg-light" id = "team">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-6 mb-5">
+        <h2 class="font-weight-bold heading text-primary mb-4">
+          Our Team
+        </h2>
+        <h5>
+          Our signs align, our minds align!
+        </h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+        <div class="h-100 person">
+          <img
+            src="{% static 'images/duc.jpg' %}"
+            alt="Image"
+            class="img-fluid"
+          />
+
+          <div class="person-contents">
+            <h2 class="mb-0"><a href="#">Bùi Minh Đức</a></h2>
+            <span class="meta d-block mb-3">Leader / AI & DS</span>
+            <ul class="social list-unstyled list-inline dark-hover">
+              <li class="list-inline-item">
+                <a href="https://twitter.com/bmd1905"><span class="icon-twitter"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/bmd1905"><span class="icon-facebook"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/bmd1905"><span class="icon-linkedin"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/bmd1905"><span class="icon-instagram"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+        <div class="h-100 person">
+          <img
+            src="{% static 'images/nhy.jpg' %}"
+            alt="Image"
+            class="img-fluid"
+          />
+
+          <div class="person-contents">
+            <h2 class="mb-0"><a href="#">Cao Uyển Nhi</a></h2>
+            <span class="meta d-block mb-3">Web developer / Designer</span>
+
+            <ul class="social list-unstyled list-inline dark-hover">
+              <li class="list-inline-item">
+                <a href="https://twitter.com/AvieTechy"><span class="icon-twitter"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/ceonhy.avie"><span class="icon-facebook"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/avietechy/"><span class="icon-linkedin"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/avietechy_/"><span class="icon-instagram"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+        <div class="h-100 person">
+          <img
+            src="{% static 'images/han.jpg' %}"
+            alt="Image"
+            class="img-fluid"
+          />
+          <div class="person-contents">
+            <h2 class="mb-0"><a href="#">Đặng Nguyễn Gia Hân</a></h2>
+            <span class="meta d-block mb-3">Operations</span>
+
+            <ul class="social list-unstyled list-inline dark-hover">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/han.dang.3975?mibextid=LQQJ4d"><span class="icon-facebook"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://instagram.com/da2nghn_?igshid=NzZIODBkYWE4Ng%3D%3D&utm_source=qr"><span class="icon-instagram"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br> <br> <br>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+        <div class="h-100 person">
+          <img
+            src="{% static 'images/nghi.jpg' %}"
+            alt="Image"
+            class="img-fluid"
+          />
+
+          <div class="person-contents">
+            <h2 class="mb-0"><a href="#">Thới Gia Nghi</a></h2>
+            <span class="meta d-block mb-3">Media</span>
+
+            <ul class="social list-unstyled list-inline dark-hover">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/The.Unibit?mibextid=LQQJ4d"><span class="icon-facebook"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+        <div class="h-100 person">
+          <img
+            src="{% static 'images/long.jpg' %}"
+            alt="Image"
+            class="img-fluid"
+          />
+          <div class="person-contents">
+            <h2 class="mb-0"><a href="#">Phạm Nguyên Hải Long</a></h2>
+            <span class="meta d-block mb-3">HR</span>
+
+            <ul class="social list-unstyled list-inline dark-hover">
+              <li class="list-inline-item">
+                <a href="https://twitter.com/aaronpham5504"><span class="icon-twitter"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://web.facebook.com/profile.php?id=100011436720338"><span class="icon-facebook"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/long-ph%E1%BA%A1m-419003249/"><span class="icon-linkedin"></span></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/aaronpham0505/?hl=en"><span class="icon-instagram"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
